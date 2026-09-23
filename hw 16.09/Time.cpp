@@ -266,3 +266,73 @@ Time Time::operator-(long h) const
     temp -= h;
     return temp;
 }
+
+// допрацювання 
+
+Time& Time::operator--()
+{
+    *this -= 1;
+    return *this;
+}
+
+Time Time::operator--(int)
+{
+    Time temp = *this;
+    *this -= 1;
+    return temp;
+}
+
+Time& Time::operator++()
+{
+    *this += 1;
+    return *this;
+}
+
+Time Time::operator++(int)
+{
+    Time temp = *this;
+    *this += 1;
+    return temp;
+}
+
+Time operator+(float seconds, const Time& a)
+{
+    return a + seconds;
+}
+
+Time operator-(float seconds, const Time& a)
+{
+    return a - seconds; 
+}
+
+Time operator+(int minutes, const Time& a)
+{
+    return a + minutes;
+}
+
+Time operator-(int minutes, const Time& a)
+{
+    return a - minutes;
+}
+
+Time operator+(long hours, const Time& a)
+{
+    return a + hours;
+}
+
+Time operator-(long hours, const Time& a)
+{
+    return a - hours;
+}
+
+std::ostream& operator<<(std::ostream& os, const Time& t)
+{
+    os << t.toString(); 
+    return os;
+}
+
+std::istream& operator>>(std::istream& is, Time& t)
+{
+    is >> t.hour >> t.minutes >> t.seconds; 
+    return is; 
+}

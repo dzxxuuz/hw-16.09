@@ -60,4 +60,29 @@ public:
 
     Time operator + (long h) const;  // add hours
     Time operator - (long h) const;
+
+    // Доопрацювання
+
+    // -------- Increment / Decrement --------
+    Time& operator--();     
+    Time operator--(int);   
+
+    Time& operator++();     
+    Time operator++(int);   
+
+
+    // -------- Friend arithmetic operators --------
+    friend Time operator+(float seconds, const Time& a);
+    friend Time operator-(float seconds, const Time& a);
+
+    friend Time operator+(int minutes, const Time& a);
+    friend Time operator-(int minutes, const Time& a);
+
+    friend Time operator+(long hours, const Time& a);
+    friend Time operator-(long hours, const Time& a);
+
+
+    // -------- Input / Output --------
+    friend std::ostream& operator<<(std::ostream& os, const Time& t);
+    friend std::istream& operator>>(std::istream& is, Time& t);
 };
